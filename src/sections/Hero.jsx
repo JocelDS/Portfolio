@@ -4,15 +4,20 @@ import { ArrowRight, Download, ChevronDown} from "lucide-react";
 import { FaGithub, FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 
 const skills = [
-  " PHP",
+  "React",
   "JavaScript",
-  "MySQL",
-  " Python",
-  "Java",
-  " C++",
-  "Firebase",
-  "Git",
+  "Tailwind CSS",
   "Flutter",
+  "Node.js",
+  "PHP",
+  "Firebase",
+  "MySQL",
+  "Git",
+  "Python",
+  "R",
+  "Java",
+  "C++",
+  "C#"
 ];
 
 export const Hero = () => {
@@ -68,10 +73,11 @@ export const Hero = () => {
                 </span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg animation-fade-in animation-delay-800">
-                Hi, I'm Jocel Delos Santos, a BSIT student majoring in Business
-                Analytics. I develop responsive web applications and data-driven
-                solutions using modern technologies while continuously expanding
-                my technical and analytical skills.
+                Hi, I'm Jocel Delos Santos, a Bachelor of Science in Information
+                Technology student specializing in the Business Analytics track.
+                I'm passionate about software engineering and enjoy building
+                responsive web applications, exploring modern technologies, and
+                developing digital solutions that solve real-world problems.
               </p>
             </div>
             {/* CTAs */}
@@ -158,7 +164,7 @@ export const Hero = () => {
                 <div key={idx} className="flex-shrink-0 px-8 py-4">
                   <span className="text-xl font-semibold text-muted-foreground/50 hover:text-muted-foreground transition-colors">
                     {skill}
-                    </span>
+                  </span>
                 </div>
               ))}
             </div>
@@ -167,12 +173,14 @@ export const Hero = () => {
       </div>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in animation-delay-800">
-        <a href="#about" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primery transition-colors group">
+        <a
+          href="#about"
+          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primery transition-colors group"
+        >
           <span className="text-xs uppercase tracking-wider">Scroll</span>
-          <ChevronDown className="w-6 h-6 animate-bounce"/>
+          <ChevronDown className="w-6 h-6 animate-bounce" />
         </a>
       </div>
-      
     </section>
   );
 };
