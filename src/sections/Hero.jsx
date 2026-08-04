@@ -1,6 +1,6 @@
 import { Button } from "@/components/Buttons";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
-import { ArrowRight, Download, } from "lucide-react";
+import { ArrowRight, Download, ChevronDown} from "lucide-react";
 import { FaGithub, FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 
 const skills = [
@@ -165,6 +165,14 @@ export const Hero = () => {
           </div>
         </div>
       </div>
+
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in animation-delay-800">
+        <a href="#about" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primery transition-colors group">
+          <span className="text-xs uppercase tracking-wider">Scroll</span>
+          <ChevronDown className="w-6 h-6 animate-bounce"/>
+        </a>
+      </div>
+      
     </section>
   );
 };
