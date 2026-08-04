@@ -1,6 +1,19 @@
 import { Button } from "@/components/Buttons";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Download, } from "lucide-react";
+import { FaGithub, FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
+
+const skills = [
+  " PHP",
+  "JavaScript",
+  "MySQL",
+  " Python",
+  "Java",
+  " C++",
+  "Firebase",
+  "Git",
+  "Flutter",
+];
 
 export const Hero = () => {
   return (
@@ -71,8 +84,85 @@ export const Hero = () => {
                 Download CV
               </AnimatedBorderButton>
             </div>
+
+            {/* Social links */}
+            <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
+              <span className="text-sm text-muted-foreground">Follow me: </span>
+              {[
+                { icon: FaGithub, href: "https://github.com/JocelDS" },
+                {
+                  icon: FaLinkedin,
+                  href: "https://www.linkedin.com/in/jaurigue-delos-santos-77582b368/",
+                },
+                {
+                  icon: FaFacebook,
+                  href: "https://www.facebook.com/jaurigue.delossantos25",
+                },
+                {
+                  icon: FaInstagram,
+                  href: "https://www.instagram.com/_jocelds/",
+                },
+              ].map((social, idx) => (
+                <a
+                  key={idx}
+                  href={social.href}
+                  className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                >
+                  {<social.icon className="w-5 h-5" />}
+                </a>
+              ))}
+            </div>
           </div>
           {/* Righ Content */}
+          <div className="relative animate-fade-in animation-delay-300">
+            {/* profile */}
+            <div className="relative max-w-md mx-auto">
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/30 via-transparent to-primary/10 blur-2xl animate-pulse" />
+              <div className="relative glass rounded-3xl p-2 glow-border">
+                <img
+                  src="/profile-photo.jpeg"
+                  alt="Jocel Delos Santos"
+                  className="w-full aspect-[4/5] object-coer rounded-2xl"
+                />
+
+                {/* floating badge */}
+                <div className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-3 animate-float">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                    <span className="text-sm font-medium">
+                      Open to Internship
+                    </span>
+                  </div>
+                </div>
+                {/* states badge */}
+                <div className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500">
+                  <div className="text-2xl font-bold text-primary">Student</div>
+                  <div className="text-xs text-muted-foreground">
+                    {" "}
+                    Developer
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* skill section */}
+        <div className="mt-20 animate-fade-in animation-delay-600">
+          <p className="text-sm text-muted-foreground mb-6 text-center">
+            Technologies I work with
+          </p>
+          <div className="relative overflow-hidden">
+            <div className="flex animate-marquee">
+              {[...skills, ...skills].map((skill, idx) => (
+                <div key={idx} className="flex-shrink-0 px-8 py-4">
+                  <span className="text-xl font-semibold text-muted-foreground/50 hover:text-muted-foreground transition-colors">
+                    {skill}
+                    </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
