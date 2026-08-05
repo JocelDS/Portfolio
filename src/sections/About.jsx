@@ -91,7 +91,17 @@ export const About = () => {
           </div>
 
           {/* right column */}
-          
+          <div className="grid sm:grid-cols-2 gap-6">
+            {cards.map((item, idx) => (
+              <div key={idx} className="glass p-6 rounded-2xl animate-fade-in" style={{ animationDelay: `${(idx + 1) * 100}ms` }}>
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 hover:bg-primary/20">
+                  <item.icon className="w-6 h-6 text-primary"/>
+                </div>
+                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -63,7 +63,7 @@ export const Hero = () => {
 
             {/* Headline */}
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animation-fade-in animation-delay-100">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100">
                 Building <span className="text-primary glow-text">digital</span>
                 <br />
                 solutions
@@ -72,7 +72,7 @@ export const Hero = () => {
                   with passion
                 </span>
               </h1>
-              <p className="text-lg text-muted-foreground max-w-lg animation-fade-in animation-delay-800">
+              <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-800">
                 Hi, I'm Jocel Delos Santos, a Bachelor of Science in Information
                 Technology student specializing in the Business Analytics track.
                 I'm passionate about software engineering and enjoy building
