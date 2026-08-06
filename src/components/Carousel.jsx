@@ -36,7 +36,7 @@ export const Carousel = ({ images, title, isMobile }) => {
     <div
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative overflow-hidden aspect-video bg-slate-950/60 flex items-center justify-center p-4 group/carousel"
+      className="relative overflow-hidden aspect-video bg-slate-950/80 flex items-center justify-center p-3 pb-10 group/carousel"
     >
       {/* Active Image */}
       <img
@@ -44,8 +44,8 @@ export const Carousel = ({ images, title, isMobile }) => {
         alt={`${title} screenshot ${currentIndex + 1}`}
         className={
           isMobile
-            ? "h-full max-w-none w-auto object-contain rounded-lg shadow-lg transition-all duration-500"
-            : "w-full h-full object-cover object-top transition-all duration-500"
+            ? "max-h-full w-auto object-contain rounded-xl shadow-md transition-all duration-300"
+            : "max-w-full max-h-full w-auto h-auto object-contain rounded-lg shadow-md transition-all duration-300"
         }
       />
 
@@ -55,7 +55,7 @@ export const Carousel = ({ images, title, isMobile }) => {
           <button
             type="button"
             onClick={prevImage}
-            className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-slate-900/80 text-white opacity-0 group-hover/carousel:opacity-100 hover:bg-primary transition-all z-20"
+            className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-slate-900/80 text-white opacity-0 group-hover/carousel:opacity-100 hover:bg-primary transition-all z-20 shadow-md"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -64,14 +64,14 @@ export const Carousel = ({ images, title, isMobile }) => {
           <button
             type="button"
             onClick={nextImage}
-            className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-slate-900/80 text-white opacity-0 group-hover/carousel:opacity-100 hover:bg-primary transition-all z-20"
+            className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-slate-900/80 text-white opacity-0 group-hover/carousel:opacity-100 hover:bg-primary transition-all z-20 shadow-md"
             aria-label="Next image"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
 
           {/* Dots Indicator */}
-          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-20 px-3 py-1.5 rounded-full bg-slate-950/60 backdrop-blur-md">
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-20 px-3 py-1.5 rounded-full bg-slate-900/90 border border-white/10 backdrop-blur-md shadow-md">
             {images.map((_, dotIdx) => (
               <button
                 key={dotIdx}
