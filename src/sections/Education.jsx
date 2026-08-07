@@ -5,6 +5,7 @@ const education = [
     school: "Batangas State University – The National Engineering University",
     location: "JLPC Malvar Campus",
     program: "Bachelor of Science in Information Technology",
+    current: true,
   },
 
   {
@@ -13,14 +14,16 @@ const education = [
     school: "Malvar Senior High School",
     location: "Malvar, Batangas",
     program: "Technical-Vocational-Livelihood (TVL) – ICT",
+    current: false,
   },
-  
+
   {
     level: "Junior High School",
     period: "2016 – 2020",
     school: "His Care Christian Institute",
     location: "Darasa, Tanauan City, Batangas",
     program: "Junior High School",
+    current: false,
   },
 
   {
@@ -29,6 +32,7 @@ const education = [
     school: "San Pedro Elementary School",
     location: "Malvar, Batangas",
     program: "Elementary Education",
+    current: false,
   },
 
   {
@@ -37,6 +41,7 @@ const education = [
     school: "His Care Christian Institute",
     location: "Darasa, Tanauan City, Batangas",
     program: "Elementary Education",
+    current: false,
   },
 ];
 export const Education = () => {
@@ -58,13 +63,36 @@ export const Education = () => {
           </h2>
 
           <p className="text-muted-foreground animate-fade-in animation-delay-20">
-            A timeline of my educational journey, from elementary school through my current studies in Information Technology.
+            A timeline of my educational journey, from elementary school through
+            my current studies in Information Technology.
           </p>
         </div>
 
         {/* timeline */}
         <div className="relative">
-          <div className="timeline-glow"/>
+          <div className="timeline-glow absolute left-0 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary/70 via-primary/30 to transparent md:-translate-x-1/2 shadow-[0_0_25px_rgba(23,178,166,0.8)]" />
+
+          {/* education items*/}
+          <div className="space-y-12">
+            {education.map((edu, idx) => (
+              <div key={idx}>
+
+                {/* timeline dot */}
+                <div></div>
+
+                {/* content */}
+                <div>
+                  <div>
+                    <span>{edu.level}</span>
+                    <h3>{edu.period}</h3>
+                    <p>{edu.school}</p>
+                    <p>{edu.location}</p>
+                    <div>{edu.program}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
