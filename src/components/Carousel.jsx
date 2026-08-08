@@ -83,8 +83,8 @@ export const Carousel = ({ images, title, isMobile }) => {
                 }}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
                   currentIndex === dotIdx
-                    ? "w-5 bg-white"
-                    : "w-1.5 bg-white/40 hover:bg-white/70"
+                    ? "w-5 bg-primary"
+                    : "w-1.5 bg-white/40 hover:bg-primary/70"
                 }`}
                 aria-label={`Go to slide ${dotIdx + 1}`}
               />
