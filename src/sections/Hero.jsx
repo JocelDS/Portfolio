@@ -93,7 +93,7 @@ export const Hero = () => {
               {/* DIRECT ANCHOR DOWNLOAD (100% Working Fix) */}
               <a
                 href="/file/Jocel_Delos_Santos_Resume.pdf"
-                download="Jocel_Delos_Santos_Resume.pdf"
+                download="Jocel_Delos_Santos_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
