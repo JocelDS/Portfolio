@@ -1,6 +1,6 @@
 import { Button } from "@/components/Buttons";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
-import { ArrowRight, Download, ChevronDown} from "lucide-react";
+import { ArrowRight, Download, ChevronDown } from "lucide-react";
 import { FaGithub, FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 
 const skills = [
@@ -17,7 +17,7 @@ const skills = [
   "R",
   "Java",
   "C++",
-  "C#"
+  "C#",
 ];
 
 export const Hero = () => {
@@ -37,6 +37,7 @@ export const Hero = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(30)].map((_, i) => (
           <div
+            key={i}
             className="absolute w-1.5 h-1.5 rounded-full opacity-60"
             style={{
               backgroundColor: "#94A3B8",
@@ -80,15 +81,27 @@ export const Hero = () => {
                 developing digital solutions that solve real-world problems.
               </p>
             </div>
+
             {/* CTAs */}
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
-              <Button size="lg">
-                Contact Me <ArrowRight className="w-5 h-5" />
-              </Button>
-              <AnimatedBorderButton>
-                <Download className="w-5 h-5" />
-                Download CV
-              </AnimatedBorderButton>
+              <a href="#contact">
+                <Button size="lg">
+                  Contact Me <ArrowRight className="w-5 h-5" />
+                </Button>
+              </a>
+
+              {/* DIRECT ANCHOR DOWNLOAD (100% Working Fix) */}
+              <a
+                href="/file/Jocel_Delos_Santos_Resume.pdf"
+                download="Jocel_Delos_Santos_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AnimatedBorderButton>
+                  <Download className="w-5 h-5" />
+                  Download CV
+                </AnimatedBorderButton>
+              </a>
             </div>
 
             {/* Social links */}
@@ -112,14 +125,17 @@ export const Hero = () => {
                 <a
                   key={idx}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
                 >
-                  {<social.icon className="w-5 h-5" />}
+                  <social.icon className="w-5 h-5" />
                 </a>
               ))}
             </div>
           </div>
-          {/* Righ Content */}
+
+          {/* Right Content */}
           <div className="relative animate-fade-in animation-delay-300">
             {/* profile */}
             <div className="relative max-w-md mx-auto">
@@ -128,7 +144,7 @@ export const Hero = () => {
                 <img
                   src="/profile-photo.jpeg"
                   alt="Jocel Delos Santos"
-                  className="w-full aspect-[4/5] object-coer rounded-2xl"
+                  className="w-full aspect-[4/5] object-cover rounded-2xl"
                 />
 
                 {/* floating badge */}
@@ -140,13 +156,11 @@ export const Hero = () => {
                     </span>
                   </div>
                 </div>
-                {/* states badge */}
+
+                {/* stats badge */}
                 <div className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500">
                   <div className="text-2xl font-bold text-primary">Student</div>
-                  <div className="text-xs text-muted-foreground">
-                    {" "}
-                    Developer
-                  </div>
+                  <div className="text-xs text-muted-foreground">Developer</div>
                 </div>
               </div>
             </div>
@@ -175,7 +189,7 @@ export const Hero = () => {
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in animation-delay-800">
         <a
           href="#about"
-          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primery transition-colors group"
+          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
         >
           <span className="text-xs uppercase tracking-wider">Scroll</span>
           <ChevronDown className="w-6 h-6 animate-bounce" />
