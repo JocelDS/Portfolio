@@ -1,12 +1,12 @@
-import { Button } from "@/components/Buttons";
 import {
   Mail,
-  MapPin,
   Phone,
+  MapPin,
   Send,
   CheckCircle,
   AlertCircle,
 } from "lucide-react";
+import { Button } from "@/components/Buttons";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
@@ -37,11 +37,9 @@ export const Contact = () => {
     email: "",
     message: "",
   });
-
   const [isLoading, setIsLoading] = useState(false);
-
   const [submitStatus, setSubmitStatus] = useState({
-    type: null,
+    type: null, // 'success' or 'error'
     message: "",
   });
 
@@ -49,11 +47,7 @@ export const Contact = () => {
     e.preventDefault();
 
     setIsLoading(true);
-    setSubmitStatus({
-      type: null,
-      message: "",
-    });
-
+    setSubmitStatus({ type: null, message: "" });
     try {
       const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -80,57 +74,45 @@ export const Contact = () => {
         type: "success",
         message: "Message sent successfully! I'll get back to you soon.",
       });
-
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
-      });
+      setFormData({ name: "", email: "", message: "" });
     } catch (err) {
       console.error("EmailJS error:", err);
-
       setSubmitStatus({
         type: "error",
-        message: "Failed to send message. Please try again later.",
+        message: err.text || "Failed to send message. Please try again later.",
       });
     } finally {
       setIsLoading(false);
     }
   };
-
   return (
-    <section id="contact" className="w-full py-32 relative overflow-hidden">
-      {/* Background Glows */}
-      <div className="absolute top-1/3 left-0 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
+    <section id="contact" className="py-32 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-highlight/5 rounded-full blur-3xl" />
+      </div>
 
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-secondary/10 rounded-full blur-3xl" />
-
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 relative z-10 w-full max-w-full">
         {/* Section Header */}
-        <div className="text-center mx-auto max-w-3xl mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">
-            get in touch
+            Get In Touch
           </span>
-
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
             Let's build{" "}
             <span className="font-serif italic font-normal text-white">
               something great.
             </span>
           </h2>
-
           <p className="text-muted-foreground animate-fade-in animation-delay-200">
-            Have a project, idea, or opportunity in mind? I'd love to hear from
-            you. Feel free to send me a message and let's connect.
+            Have a project in mind? I'd love to hear about it. Send me a message
+            and let's discuss how we can work together.
           </p>
         </div>
 
-        {/* Contact Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Contact Form */}
-          <div className="glass p-8 rounded-3xl border border-primary/30 animate-fade-in animation-delay-300">
+        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto w-full min-w-0">
+          <div className="glass p-8 rounded-3xl border border-primary/30 animate-fade-in animation-delay-300 min-w-0 w-full">
             <form className="space-y-6" onSubmit={handleSubmit}>
-              {/* Name */}
               <div>
                 <label
                   htmlFor="name"
@@ -138,7 +120,6 @@ export const Contact = () => {
                 >
                   Name
                 </label>
-
                 <input
                   id="name"
                   type="text"
@@ -146,16 +127,12 @@ export const Contact = () => {
                   placeholder="Your name..."
                   value={formData.name}
                   onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      name: e.target.value,
-                    })
+                    setFormData({ ...formData, name: e.target.value })
                   }
                   className="w-full px-4 py-3 bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                 />
               </div>
 
-              {/* Email */}
               <div>
                 <label
                   htmlFor="email"
@@ -163,24 +140,19 @@ export const Contact = () => {
                 >
                   Email
                 </label>
-
                 <input
                   id="email"
                   type="email"
                   required
-                  placeholder="your@gmail.com"
+                  placeholder="your@email.com"
                   value={formData.email}
                   onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      email: e.target.value,
-                    })
+                    setFormData({ ...formData, email: e.target.value })
                   }
                   className="w-full px-4 py-3 bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                 />
               </div>
 
-              {/* Message */}
               <div>
                 <label
                   htmlFor="message"
@@ -188,24 +160,19 @@ export const Contact = () => {
                 >
                   Message
                 </label>
-
                 <textarea
                   id="message"
                   rows={5}
                   required
-                  placeholder="Your message..."
                   value={formData.message}
                   onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      message: e.target.value,
-                    })
+                    setFormData({ ...formData, message: e.target.value })
                   }
+                  placeholder="Your message..."
                   className="w-full px-4 py-3 bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none"
                 />
               </div>
 
-              {/* Submit Button */}
               <Button
                 className="w-full"
                 type="submit"
@@ -213,10 +180,7 @@ export const Contact = () => {
                 disabled={isLoading}
               >
                 {isLoading ? (
-                  <>
-                    Sending...
-                    <Send className="w-5 h-5" />
-                  </>
+                  <>Sending...</>
                 ) : (
                   <>
                     Send Message
@@ -225,34 +189,32 @@ export const Contact = () => {
                 )}
               </Button>
 
-              {/* Status Message */}
               {submitStatus.type && (
                 <div
-                  className={`flex items-center gap-3 p-4 rounded-xl ${
-                    submitStatus.type === "success"
-                      ? "bg-green-500/10 border border-green-500/20 text-green-400"
-                      : "bg-red-500/10 border border-red-500/20 text-red-400"
-                  }`}
+                  className={`flex items-center gap-3
+                     p-4 rounded-xl ${
+                       submitStatus.type === "success"
+                         ? "bg-green-500/10 border border-green-500/20 text-green-400"
+                         : "bg-red-500/10 border border-red-500/20 text-red-400"
+                     }`}
                 >
                   {submitStatus.type === "success" ? (
                     <CheckCircle className="w-5 h-5 flex-shrink-0" />
                   ) : (
                     <AlertCircle className="w-5 h-5 flex-shrink-0" />
                   )}
-
                   <p className="text-sm">{submitStatus.message}</p>
                 </div>
               )}
             </form>
           </div>
 
-          {/* Contact Information */}
-          <div className="space-y-6 animate-fade-in animation-delay-400">
+          {/* Contact Info */}
+          <div className="space-y-6 animate-fade-in animation-delay-400 min-w-0 w-full">
             <div className="glass rounded-3xl p-8">
               <h3 className="text-xl font-semibold mb-6">
                 Contact Information
               </h3>
-
               <div className="space-y-4">
                 {contactInfo.map((item, i) => (
                   <a
@@ -269,12 +231,10 @@ export const Contact = () => {
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                       <item.icon className="w-5 h-5 text-primary" />
                     </div>
-
                     <div>
                       <div className="text-sm text-muted-foreground">
                         {item.label}
                       </div>
-
                       <div className="font-medium">{item.value}</div>
                     </div>
                   </a>
@@ -282,15 +242,13 @@ export const Contact = () => {
               </div>
             </div>
 
-            {/* Currently Available */}
+            {/* Availability Card */}
             <div className="glass rounded-3xl p-8 border border-primary/30">
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-
                 <span className="font-medium">Currently Available</span>
               </div>
-
-              <p className="text-muted-foreground text-sm leading-6">
+              <p className="text-muted-foreground text-sm">
                 I'm currently open to internships, collaborations, and
                 opportunities in technology and business analytics.
               </p>
