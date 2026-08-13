@@ -22,7 +22,23 @@ const projects = [
     isMobile: true,
   },
 
-  
+  {
+    title: "The Cyber Cafe 1025",
+    description: "Cyber Cafe Management System.",
+    images: [
+      "/projects/TheCyberCafe1025/thecybercafe1025-login-page.png",
+      "/projects/TheCyberCafe1025/thecybercafe1025-admin-dashboard.png",
+      "/projects/TheCyberCafe1025/thecybercafe1025-admin-customers-logs.png",
+      "/projects/TheCyberCafe1025/thecybercafe1025-admin-manage-staff.png",
+      "/projects/TheCyberCafe1025/thecybercafe1025-admin-pc-station-map.png",
+      "/projects/TheCyberCafe1025/thecybercafe1025-admin-payments.png",
+      "/projects/TheCyberCafe1025/thecybercafe1025-admin-reports.png",
+      "/projects/TheCyberCafe1025/thecybercafe1025-admin-sessions-terminal.png",
+      "/projects/TheCyberCafe1025/thecybercafe1025-admin-my-profile.png",
+    ],
+    tags: ["PHP", "MySQL", "JavaScript"],
+    github: "https://github.com/JocelDS/thecybercafe1025",
+  },
 
   {
     title: "Baked by the Crater",
