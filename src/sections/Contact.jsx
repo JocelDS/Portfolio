@@ -99,7 +99,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-32 relative overflow-hidden">
+    <section id="contact" className="w-full py-32 relative overflow-hidden">
       {/* Background Glows */}
       <div className="absolute top-1/3 left-0 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
 
